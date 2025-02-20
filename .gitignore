@@ -1,0 +1,38 @@
+node_modules/
+dist/
+.env
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
+coverage/
+*.swp
+*.swo
+
+# Logs
+logs
+*.log
+pids
+*.pid
+*.seed
+*.state
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Production build
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
