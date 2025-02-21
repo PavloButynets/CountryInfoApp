@@ -1,11 +1,11 @@
 export type PopulationInfo = {
-    year: number;
-    value: number;
-};
+  year: number
+  value: number
+}
 
 export type Country = {
-    country: string;
-    code: string;
-    iso3: string;
-    populationCounts: PopulationInfo[];
-};
+  country: string
+  code: string
+  iso3: string
+  populationCounts: PopulationInfo[]
+}

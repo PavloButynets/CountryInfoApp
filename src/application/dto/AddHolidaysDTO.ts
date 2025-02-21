@@ -1,24 +1,21 @@
 import {
-    IsString,
-    IsArray,
-    IsOptional,
-    IsDate,
-    Length
-} from 'class-validator';
+  IsString,
+  IsArray,
+  IsOptional,
+  Length,
+  IsNumber
+} from 'class-validator'
 
 export class AddHolidaysDTO {
-    @IsString()
-    userId: string;
+  @IsString()
+  @Length(2)
+  countryCode: string
 
-    @IsString()
-    @Length(2)
-    countryCode: string;
+  @IsNumber()
+  year: number
 
-    @IsDate()
-    year: number;
-
-    @IsOptional()
-    @IsArray()
-    @IsString({each: true})
-    holidays?: string[];
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  holidays?: string[]
 }
