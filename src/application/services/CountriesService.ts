@@ -21,10 +21,18 @@ interface Flag {
 
 @injectable()
 export class CountriesService {
-  async getAvailableCountries(): Promise<string[]> {
+  async getAvailableCountries(page: number, limit: number): Promise<{ countries: string[], totalCount: number }> {
     try {
       const response = await axios.get(API_URLS.AVAILABLE_COUNTRIES)
-      return response.data
+      const countries = response.data;
+
+      const totalCount: number = countries.length;
+      const startIndex: number = (page - 1) * limit
+      const endIndex: number = page * limit
+
+      const paginatedCountries = countries.slice(startIndex, endIndex)
+
+      return { countries: paginatedCountries, totalCount }
     } catch {
       throw new Error('Failed to fetch countries')
     }

@@ -21,7 +21,12 @@ export class CountriesController extends BaseController {
     res: Response
   ): Promise<void> => {
     try {
-      const countries = await this._countriesService.getAvailableCountries()
+      const page = parseInt(req.query.page as string, 10) || 1;
+      const limit = parseInt(req.query.limit as string, 10) || 10;
+
+      const countries = await this._countriesService
+        .getAvailableCountries(page, limit)
+
       res.status(200).json(countries)
     } catch (error) {
       this.ErrorStatus(error, res)
