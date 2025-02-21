@@ -1,25 +1,31 @@
-import { injectable } from 'inversify'
 import axios from 'axios'
-import { API_URLS } from '../../constants/URLs'
-import { CountryInfoDTO } from '../dto/CountryInfoDTO'
-import { Country } from '../../types/country'
+import { injectable } from 'inversify'
 
-type BorderCountry = {
-  commonName: string
-  officialName: string
-  countryCode: string
+import { API_URLS } from '../../constants/URLs'
+import { Country } from '../../types/country'
+import { CountryInfoDTO } from '../dto/CountryInfoDTO'
+
+interface BorderCountry {
   borders: Country[]
+  commonName: string
+  countryCode: string
+  officialName: string
+}
+
+interface Flag {
+  flag: string
+  iso2: string
+  iso3: string
+  name: string
 }
 
 @injectable()
 export class CountriesService {
-  constructor() {}
-
   async getAvailableCountries(): Promise<string[]> {
     try {
       const response = await axios.get(API_URLS.AVAILABLE_COUNTRIES)
       return response.data
-    } catch (error) {
+    } catch {
       throw new Error('Failed to fetch countries')
     }
   }
@@ -37,14 +43,14 @@ export class CountriesService {
 
       const countryName: string = borderCountries.data.commonName
 
-      const borderCountriesNames = borderCountries.data.borders.map(
+      const borderCountriesNames: string[] = borderCountries.data.borders.map(
         (borderCountry: BorderCountry) => borderCountry.commonName
       )
-      const countryPopulation = populationResponse.data.data.find(
+      const countryPopulation: Country = populationResponse.data.data.find(
         (country: Country) => country.country === countryName
       )
-      const countryFlag = flagsResponse.data.data.find(
-        (flag: any) => flag.name === countryName
+      const countryFlag: Flag = flagsResponse.data.data.find(
+        (flag: Flag) => flag.name === countryName
       )
 
       if (!countryPopulation || !countryFlag) {

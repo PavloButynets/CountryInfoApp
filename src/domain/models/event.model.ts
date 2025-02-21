@@ -1,52 +1,52 @@
-import mongoose, { Schema, Document } from 'mongoose'
+import mongoose, { Document, Schema } from 'mongoose'
 import { v4 as uuidv4 } from 'uuid'
 interface IEvent extends Document {
-  userId: string
-  date: Date
-  localName: string
-  name: string
+  counties: null | string[]
   countryCode: string
+  date: Date
   fixed: boolean
   global: boolean
-  counties: string[] | null
-  launchYear: number | null
+  launchYear: null | number
+  localName: string
+  name: string
   types: string[]
+  userId: string
 }
 
 const eventSchema: Schema = new Schema<IEvent>({
-  userId: {
-    type: String,
+  countryCode: {
     required: true,
-    default: uuidv4
+    type: String
   },
   date: {
-    type: Date,
-    required: true
-  },
-  localName: {
-    type: String,
-    required: true
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  countryCode: {
-    type: String,
-    required: true
+    required: true,
+    type: Date
   },
   fixed: {
-    type: Boolean,
-    required: true
+    required: true,
+    type: Boolean
   },
   global: {
-    type: Boolean,
-    required: true
+    required: true,
+    type: Boolean
+  },
+  localName: {
+    required: true,
+    type: String
+  },
+  name: {
+    required: true,
+    type: String
   },
   types: {
-    type: [String],
     enum: ['Public'],
-    required: true
+    required: true,
+    type: [String]
+  },
+  userId: {
+    default: uuidv4,
+    required: true,
+    type: String
   }
 })
 

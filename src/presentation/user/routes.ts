@@ -1,11 +1,12 @@
 import { Router } from 'express'
+
+import { AddHolidaysDTO } from '../../application/dto/AddHolidaysDTO'
 import { AppContainer } from '../../container'
-import { UserController } from './UserController'
 import { USER_TYPES } from '../../container/types/UserTypes'
 import { validationMiddleware } from '../middlewares/validationMiddleware'
-import { AddHolidaysDTO } from '../../application/dto/AddHolidaysDTO'
+import { UserController } from './UserController'
 
-export const userRoutes = () => {
+export const userRoutes = (): Router => {
   const container = AppContainer.getInstance().getContainer()
   const router = Router()
 

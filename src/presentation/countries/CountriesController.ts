@@ -1,5 +1,6 @@
-import { inject, injectable } from 'inversify'
 import { Request, Response } from 'express'
+import { inject, injectable } from 'inversify'
+
 import { CountriesService } from '../../application/services/CountriesService'
 import { COUNTRIES_TYPES } from '../../container/types/CountriesTypes'
 import { BaseController } from '../BaseController'
@@ -20,9 +21,7 @@ export class CountriesController extends BaseController {
     res: Response
   ): Promise<void> => {
     try {
-      console.log('count1')
       const countries = await this._countriesService.getAvailableCountries()
-      console.log(countries)
       res.status(200).json(countries)
     } catch (error) {
       this.ErrorStatus(error, res)

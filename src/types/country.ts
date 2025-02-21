@@ -1,11 +1,11 @@
-export type PopulationInfo = {
-  year: number
-  value: number
-}
-
-export type Country = {
-  country: string
+export interface Country {
   code: string
+  country: string
   iso3: string
   populationCounts: PopulationInfo[]
+}
+
+export interface PopulationInfo {
+  value: number
+  year: number
 }

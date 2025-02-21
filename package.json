@@ -14,13 +14,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vitest/eslint-plugin": "^1.1.32-beta.1",
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "eslint-plugin-perfectionist": "^4.9.0",
     "express": "^4.21.2",
     "inversify": "^6.2.2",
-    "mongoose": "^8.10.1",
-    "uuid": "^11.1.0"
+    "mongoose": "^8.10.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
@@ -34,7 +35,6 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^16.0.0",
-    "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.1",

@@ -1,7 +1,8 @@
 import { Router } from 'express'
+
 import { AppContainer } from '../../container'
-import { CountriesController } from './CountriesController'
 import { COUNTRIES_TYPES } from '../../container/types/CountriesTypes'
+import { CountriesController } from './CountriesController'
 
 export const countriesRoutes = () => {
   const container = AppContainer.getInstance().getContainer()

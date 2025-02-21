@@ -1,7 +1,8 @@
 import { Container } from 'inversify'
+
 import countriesModuleContainer from './modules/CountriesModule'
-import userModuleContainer from './modules/UserModule'
 import eventModuleContainer from './modules/EventModule'
+import userModuleContainer from './modules/UserModule'
 
 export class AppContainer {
   private static _instance: AppContainer | null = null // Singleton instance
@@ -18,13 +19,13 @@ export class AppContainer {
     return AppContainer._instance
   }
 
+  public getContainer(): Container {
+    return this.container
+  }
+
   public loadModules(): void {
     this.container.load(countriesModuleContainer)
     this.container.load(userModuleContainer)
     this.container.load(eventModuleContainer)
-  }
-
-  public getContainer(): Container {
-    return this.container
   }
 }

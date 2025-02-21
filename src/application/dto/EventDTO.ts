@@ -1,12 +1,12 @@
 export class EventDTO {
-  date: string
-  localName: string
-  name: string
   countryCode: string
+  date: string
   fixed: boolean
   global: boolean
-  userId: string
+  localName: string
+  name: string
   types: string[]
+  userId: string
 
   constructor(
     date: string,

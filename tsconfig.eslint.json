@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "esModuleInterop": true
-  },
-  "include": ["src", "eslint.config.mjs"],
-  "exclude": ["node_modules", "dist"]
-}

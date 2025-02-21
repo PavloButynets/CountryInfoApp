@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
 
 interface MongoDbOptions {
-  uri: string
   database: string
+  uri: string
 }
 
 export function connectMongoDb(options: MongoDbOptions) {
@@ -11,7 +11,7 @@ export function connectMongoDb(options: MongoDbOptions) {
     .then(() => {
       console.log('Connected to MongoDB')
     })
-    .catch((error: any) => {
+    .catch((error: Error) => {
       console.error('Error connecting to MongoDB:', error)
     })
 }

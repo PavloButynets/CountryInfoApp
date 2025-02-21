@@ -1,9 +1,9 @@
 import {
-  IsString,
   IsArray,
+  IsNumber,
   IsOptional,
-  Length,
-  IsNumber
+  IsString,
+  Length
 } from 'class-validator'
 
 export class AddHolidaysDTO {
@@ -11,11 +11,11 @@ export class AddHolidaysDTO {
   @Length(2)
   countryCode: string
 
-  @IsNumber()
-  year: number
-
-  @IsOptional()
   @IsArray()
+  @IsOptional()
   @IsString({ each: true })
   holidays?: string[]
+
+  @IsNumber()
+  year: number
 }

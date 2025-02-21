@@ -1,6 +1,6 @@
 const COUNTRIES_TYPES = {
-  CountriesService: Symbol.for('CountriesService'),
-  CountriesController: Symbol.for('CountriesController')
+  CountriesController: Symbol.for('CountriesController'),
+  CountriesService: Symbol.for('CountriesService')
 }
 
 export { COUNTRIES_TYPES }

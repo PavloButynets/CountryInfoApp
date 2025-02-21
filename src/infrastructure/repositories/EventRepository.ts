@@ -1,7 +1,8 @@
-import { EventModel, IEvent } from '../../domain/models/event.model'
 import { Model } from 'mongoose'
-import { IEventRepository } from '../../domain/repositories/IEventRepository'
+
 import { EventDTO } from '../../application/dto/EventDTO'
+import { EventModel, IEvent } from '../../domain/models/event.model'
+import { IEventRepository } from '../../domain/repositories/IEventRepository'
 
 export class EventRepository implements IEventRepository {
   private readonly _eventModel: Model<IEvent>

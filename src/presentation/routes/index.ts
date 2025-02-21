@@ -1,4 +1,5 @@
 import { Router } from 'express'
+
 import { countriesRoutes } from '../countries/routes'
 import { userRoutes } from '../user/routes'
 

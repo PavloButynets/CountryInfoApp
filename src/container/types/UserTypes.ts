@@ -1,6 +1,6 @@
 const USER_TYPES = {
-  UserService: Symbol.for('CalendarService'),
-  UserController: Symbol.for('CalendarController')
+  UserController: Symbol.for('CalendarController'),
+  UserService: Symbol.for('CalendarService')
 }
 
 export { USER_TYPES }
